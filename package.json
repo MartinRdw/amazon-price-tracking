@@ -1,28 +1,22 @@
 {
-  "name": "tgv-max",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.7.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "@types/zenaton": "^0.5.0"
-  },
-  "dependencies": {
-    "zenaton": "^0.7.0",
-    "dotenv": "6.2.0",
-    "uniqid": "5.0.3"
+    "name": "amazon-price-tracking",
+    "version": "1.0.0",
+    "description": "[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)",
+    "main": "index.js",
+    "scripts": {
+      "heroku-prebuild": "cd web_app && npm install && cd ../worker && npm install",
+      "heroku-postbuild": "cd web_app && npm run build",
+      "start": "cd web_app && node server.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/MartinRdw/amazon-price-tracking.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/MartinRdw/amazon-price-tracking/issues"
+    },
+    "homepage": "https://github.com/MartinRdw/amazon-price-tracking#readme"
   }
-}

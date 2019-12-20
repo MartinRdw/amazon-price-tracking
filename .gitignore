@@ -1,4 +1,6 @@
-zenaton.err
-zenaton.out
-/node_modules
+/worker/zenaton.err
+/worker/zenaton.out
 .env
+/web_app/node_modules/
+/worker/node_modules/
+.DS_Store
