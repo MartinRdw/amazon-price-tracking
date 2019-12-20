@@ -10,6 +10,12 @@ module.exports = task('GetAmazonProductPrice', async function (productUrl) {
   const browser = await puppeteer.launch(
     {
       headless: true,
+      sandbox:false,
+      args : [
+        '--remote-debugging-port=9222',
+        '--disable-setuid-sandbox', 
+        '--no-sandbox'
+      ],
       defaultViewport: {
         width: 1100,
         height: 840
