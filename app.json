@@ -1,0 +1,52 @@
+{
+  "name": "Amazon Price Tracking",
+  "description": "Price alerts on Amazon product with Zenaton & Puppeteer",
+  "repository": "https://github.com/MartinRdw/amazon-price-tracking",
+  "logo": "https://avatars1.githubusercontent.com/u/14834643?s=60&v=4",
+  "keywords": ["alerts", "amazon", "zenaton", "puppeteer"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "zenaton/heroku-buildpack-zenaton"
+    },
+    {
+      "url": "puppeteer-heroku-buildpack"
+    }
+  ],
+  "env": {
+    "ZENATON_APP_ID": {
+      "description": "The Zenaton Application ID (find it on https://app.zenaton.com/api)",
+      "required": true
+    },
+    "ZENATON_API_TOKEN": {
+      "description": "The Zenaton API token (find it on https://app.zenaton.com/api)",
+      "required": true
+    },
+    "ZENATON_APP_ENV": {
+      "description": "The Zenaton environment",
+      "value": "dev",
+      "required": true
+    },
+    "ZENATON_LISTEN_ARGS": {
+      "description": "The Zenaton Agent listen args",
+      "value": "--boot=worker/boot.js --node",
+      "required": true
+    },
+    "ZENATON_SLACK_CONNECTOR_ID": {
+      "description": "Your Zenaton Slack connection id (find it on https://app.zenaton.com/connectors). Follow our guide: https://github.com/zenaton/new-user-workflow/blob/master/doc/setup-sendgrid-connector.md",
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    },
+    "zenatonworker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

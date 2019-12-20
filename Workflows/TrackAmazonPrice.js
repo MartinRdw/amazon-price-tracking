@@ -2,7 +2,7 @@
 const { workflow, duration } = require('zenaton')
 
 module.exports = workflow('TrackAmazonPrice', function * (product, productUrl, alertPrice, hoursBetweenEachCheck) {
-  const slack = this.connector('slack', 'your_slack_id')
+  const slack = this.connector('slack', process.env.ZENATON_SLACK_CONNECTOR_ID)
 
   while (true) {
     // get product price

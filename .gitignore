@@ -1,3 +1,4 @@
 zenaton.err
 zenaton.out
 /node_modules
+.env
