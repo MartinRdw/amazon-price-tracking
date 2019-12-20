@@ -21,6 +21,6 @@
     "zenaton": "^0.7.0",
     "dotenv": "6.2.0",
     "uniqid": "5.0.3",
-    "puppeteer": "^1.20.0"
+    "puppeteer": "^2.0.0"
   }
 }
