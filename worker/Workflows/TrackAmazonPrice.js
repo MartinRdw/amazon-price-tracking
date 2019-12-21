@@ -8,6 +8,20 @@ module.exports = workflow('TrackAmazonPrice', function * (product, productUrl, a
     // get product price
     const price = yield this.run.task('GetAmazonProductPrice', productUrl)
 
+    if (!price) {
+      // can not find price
+      slack.post('chat.postMessage', {
+        body: {
+          text: `❌ Can not find price of ${product} \n ➡️ ${productUrl}`,
+          as_user: true,
+          channel: 'amazon'
+        }
+      })
+
+      // terminate workflow
+      this.terminate()
+    }
+
     // send alert if needed
     if (parseFloat(price) < alertPrice) {
       slack.post('chat.postMessage', {
@@ -18,7 +32,7 @@ module.exports = workflow('TrackAmazonPrice', function * (product, productUrl, a
         }
       })
 
-      // terminate workflows
+      // terminate workflow
       this.terminate()
     }
 

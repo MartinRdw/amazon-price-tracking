@@ -1,2 +1,2 @@
 web: node web_app/server.js
-zenatonworker: zenaton start && zenaton listen --boot ./worker/boot.js && tail -f zenaton.*
+zenatonworker: zenaton start && cd worker && zenaton listen --boot boot.js && tail -f zenaton.*

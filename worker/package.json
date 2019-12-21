@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "zenaton": "^0.7.0",
-    "dotenv": "6.2.0",
+    "dotenv": "^8.1.0",
     "uniqid": "5.0.3",
     "puppeteer": "^2.0.0"
   }
