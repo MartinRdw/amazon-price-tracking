@@ -27,13 +27,17 @@ module.exports = task("GetAmazonProductPrice", async function(productUrl) {
   // wait page load
   await page.waitForSelector(SELECTORS.productTitle, { visible: true });
 
+  let price = null;
+
   // find price
   let priceInput = await page.$(SELECTORS.productPrice_1);
-  let price = await page.evaluate(element => element.textContent, priceInput);
-
-  if (price) {
-    await browser.close();
-    return parseFloat(price.slice(0, -2));
+  
+  if (priceInput) {
+    price = await page.evaluate(element => element.textContent, priceInput);
+    if (price) {
+      await browser.close();
+      return parseFloat(price.slice(0, -2));
+    }
   }
 
   priceInput = await page.$(SELECTORS.productPrice_2);
